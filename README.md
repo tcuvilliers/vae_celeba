@@ -1,4 +1,4 @@
-# School project with Tom Chassard 
+# School project with Tom Chassard
 
 Trying to run the code found here : https://github.com/dhanushkamath/VariationalAutoencoder/blob/master/Variational_Autoencoder.ipynb
 

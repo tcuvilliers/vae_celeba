@@ -15,6 +15,15 @@ from utils import build_vae_encoder, build_decoder, vae_generate_images, plot_co
 
 if __name__ == '__main__' :
 
+	### Hardcoded parameters
+	LEARNING_RATE = 0.0005
+	N_EPOCHS = 10
+	LOSS_FACTOR = 0.00044
+
+	INPUT_DIM = (224,224,3) # Image dimension
+	BATCH_SIZE = int(128) ## Original is 512
+	Z_DIM = 512 # Dimension of the latent vector (z)
+
 	##1
 	WEIGHTS_FOLDER = './weights/'
 	DATA_FOLDER = './data/img_align_celeba/'
@@ -26,14 +35,6 @@ if __name__ == '__main__' :
 	print("Total number of images : " + str(NUM_IMAGES))
 	# prints : Total number of images : 202599
 
-
-	LEARNING_RATE = 0.0005
-	N_EPOCHS = 10
-	LOSS_FACTOR = 10
-
-	INPUT_DIM = (128,128,3) # Image dimension
-	BATCH_SIZE = int(512) ## Original is 512
-	Z_DIM = 512 # Dimension of the latent vector (z)
 
 	data_flow = ImageDataGenerator(rescale=1./255).flow_from_directory(DATA_FOLDER, 
 																																		 target_size = INPUT_DIM[:2],
@@ -98,7 +99,7 @@ if __name__ == '__main__' :
 
 
 	###9
-  z_test = vae_encoder.predict(example_batch[:200])
+	z_test = vae_encoder.predict(example_batch[:200])
 
 	x = np.linspace(-3, 3, 300)
 
